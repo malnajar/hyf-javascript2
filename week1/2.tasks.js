@@ -67,7 +67,7 @@ let totalPay = 0;
 
 payPerTask.forEach(
     pay => totalPay += pay
-)
+);
 
 totalPay = totalPay.toFixed(2);
 
