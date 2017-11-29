@@ -60,14 +60,14 @@ const ratePerHour = 35;
 
 let payPerTask = durationInHours.map(
     duration => duration * ratePerHour
-)
+);
 
 // calculate total pay
 let totalPay = 0;
 
 payPerTask.forEach(
     pay => totalPay += pay
-);
+)
 
 totalPay = totalPay.toFixed(2);
 
