@@ -50,7 +50,7 @@ let durationInHours = tasks.map(
     task => task.duration / 60
 );
 
-// remove tasks > 2hrs long
+// remove tasks 2hrs or longer
 durationInHours = durationInHours.filter(
     duration => duration < 2
 );
