@@ -1,0 +1,143 @@
+
+actually, `reduce` doesn’t create a new array
+
+
+[1:02] 
+but `map` and `filter` do
+
+
+[1:02] 
+the `filter` function will 
+always return a new array that contains the same kind of objects as the input array (but with fewer items)
+
+
+
+
+[1:03] 
+the `map` function creates an array with the items that you return in the function
+
+
+
+
+[1:03] 
+so, if you return objects from the `map` function, the resulting array will contain objects:
+
+
+
+
+[1:04] 
+ ```const input = [1, 2, 3];
+const output = input.map(value => {
+  return {iHaveValue: value};
+});
+
+
+```
+
+
+now output contains:
+
+```[
+  {iHaveValue: 1},
+  {iHaveValue: 2},
+  {iHaveValue: 3}
+]
+
+
+
+let taskDurationsToHours = tasks.map(convert => {
+  
+  
+return { convert.name: convert.duration / 60 }
+})
+
+
+
+
+[1:07] 
+@joost i think it will not work this way
+
+
+ 
+
+[1:10 PM] 
+that’s because `{ convert.name: convert.duration / 60 }` is not valid (edited)
+
+
+
+
+[1:10] 
+when you *initialize* an object, which is what you do here
+
+
+
+
+[1:10] 
+the keys that you use will become the literal value that you type
+
+
+
+
+[1:10] 
+for example:
+
+
+
+
+[1:11] 
+in `{a: 1, b: 2}`, `a` and `b` are like strings:
+
+
+
+
+[1:11] 
+they *literally* end up in the object
+
+
+
+
+[1:11] 
+so
+
+```const me = "Joost";
+
+const obj = {me: true};
+
+
+```
+
+
+you might think that `obj` now has the key `"Joost"` but that’s not true (edited)
+
+
+
+
+[1:12] 
+`obj` has the key `"me"`
+
+
+
+
+[1:12] 
+if you want to end up with an object with the key `"Joost"`, you have to do:
+
+
+
+
+[1:12] 
+ ```const obj = {};
+obj[me] = true;
+
+
+[1:12] 
+OR
+
+
+
+
+[1:12] 
+In ES6 you can type:
+
+
+
+```const obj = {[me]: true};```
